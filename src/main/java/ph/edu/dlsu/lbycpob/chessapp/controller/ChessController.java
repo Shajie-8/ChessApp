@@ -176,6 +176,7 @@ public class ChessController {
         ChessPiece capturedPiece = board.pieceAt(newRow, newCol);
         int originalRow = piece.getRow();
         int originalCol = piece.getCol();
+        boolean originalHasMoved = piece.hasMoved(); // Preserve state
 
         // Handle special moves
         boolean isCastling = piece instanceof King && Math.abs(newCol - originalCol) == 2;
@@ -231,6 +232,7 @@ public class ChessController {
             board.addPiece(enPassantCaptured);
         }
 
+        piece.setHasMoved(originalHasMoved);
         return resolvesCheck;
     }
 

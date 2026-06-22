@@ -76,8 +76,11 @@ public class Pawn extends ChessPiece {
                 return !moveWouldCauseCheck(row, col, board);
             }
             // Initial two-square move
-            if (!hasMoved && rowDiff == 2 * direction && board.pieceAt(row, col) == null) {
-                return !moveWouldCauseCheck(row, col, board);
+            if (!hasMoved && rowDiff == 2 * direction) {
+                int intermediateRow = this.row + direction;
+                if (board.pieceAt(intermediateRow, col) == null && board.pieceAt(row, col) == null) {
+                    return !moveWouldCauseCheck(row, col, board);
+                }
             }
         }
 

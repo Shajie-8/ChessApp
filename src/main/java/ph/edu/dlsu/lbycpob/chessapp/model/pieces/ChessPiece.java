@@ -40,6 +40,7 @@ public abstract class ChessPiece implements ChessPieceInterface {
         if (capturedPiece != null) {
             board.addPiece(capturedPiece);
         }
+        this.hasMoved = originalHasMoved;
         return wouldCauseCheck;
     }
 
