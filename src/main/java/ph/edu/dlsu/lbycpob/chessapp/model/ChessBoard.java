@@ -82,7 +82,7 @@ public class ChessBoard implements ChessBoardInterface {
      * - White pieces: pawns on row 6, back rank (row 7) with major pieces
      */
     public void initializeBoard() {
-        // TODO:  Call addPiece() here to add the Chessboard pieces
+        clearBoard(); // Ensure board is empty
     }
 
     /**
