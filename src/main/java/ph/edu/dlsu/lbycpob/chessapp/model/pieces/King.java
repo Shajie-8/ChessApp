@@ -48,7 +48,10 @@ public class King extends ChessPiece {
         int rowDiff = Math.abs(row - this.row);
         int colDiff = Math.abs(col - this.col);
 
-        // TODO: Complete the polymorphic method canMoveTo()
+        if ((rowDiff > 1 || colDiff > 1) || (rowDiff == 0 && colDiff == 0)) return false;
+
+        ChessPiece target = board.pieceAt(row, col);
+        if (target != null && target.getColor() == this.color) return false;
 
         return !moveWouldCauseCheck(row, col, board);
     }
