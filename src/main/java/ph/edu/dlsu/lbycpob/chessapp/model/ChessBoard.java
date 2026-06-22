@@ -1,7 +1,7 @@
 package ph.edu.dlsu.lbycpob.chessapp.model;
 
 // ChessBoard.java
-import ph.edu.dlsu.lbycpob.chessapp.model.pieces.ChessPiece;
+import ph.edu.dlsu.lbycpob.chessapp.model.pieces.*;
 
 import java.util.Arrays;
 

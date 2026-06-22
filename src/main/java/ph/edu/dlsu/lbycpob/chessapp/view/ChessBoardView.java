@@ -23,6 +23,10 @@ public class ChessBoardView extends Canvas {
     private int selectedRow = -1;
     private int selectedCol = -1;
 
+    // Highlights state
+    private boolean[][] highlightMoves = new boolean[8][8];
+    private boolean[][] captureMoves = new boolean[8][8];
+
     // Chess piece images
     private Image[][] pieceImages;
     private boolean imagesLoaded = false;
