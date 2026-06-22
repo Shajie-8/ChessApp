@@ -92,7 +92,12 @@ public class ChessBoardView extends Canvas {
                 double y = row * SQUARE_SIZE;
                 gc.fillRect(x, y, SQUARE_SIZE, SQUARE_SIZE);
 
-                // Draw piece
+                // Draw valid empty moves highlights (light green overlay + green dot)
+                if (highlightMoves != null && highlightMoves[row][col]) {
+                    gc.setFill(Color.rgb(144, 238, 144, 0.45)); // Light green translucent
+                    gc.fillRect(x, y, SQUARE_SIZE, SQUARE_SIZE);
+
+                    // Draw piece
                 if (board != null) {
                     ChessPiece piece = board.pieceAt(row, col);
                     if (piece != null) {
