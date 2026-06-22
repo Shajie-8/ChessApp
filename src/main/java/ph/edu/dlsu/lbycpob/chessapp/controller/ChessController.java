@@ -24,7 +24,7 @@ public class ChessController {
     private final List<String> moveList = new ArrayList<>();
 
     private final int AI_COLOR = ChessPiece.BLACK;
-    private final boolean AI_ENABLED = true;
+    private final boolean AI_ENABLED = false;
     private boolean aiThinking = false;
 
     // Constructor

@@ -81,7 +81,7 @@ public class ChessBoardView extends Canvas {
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
                 boolean isLight = (row + col) % 2 == 0;
-                gc.setFill(isLight ? Color.WHEAT : Color.SADDLEBROWN);
+                gc.setFill(isLight ? Color.web("#E2E4E6") : Color.web("#3b6285"));
 
                 // Highlight selected square
                 if (row == selectedRow && col == selectedCol) {
