@@ -78,12 +78,14 @@ public class ChessController {
                     if (pieceCanHelpInCheck(piece)) {
                         selectedPiece = piece;
                         view.getBoard().selectSquare(row, col);
+                        calculateAndShowHighlights(piece);
                     }
                     // If in check and the piece can't help, don't select it
                 } else {
                     // Not in check - allow normal selection
                     selectedPiece = piece;
                     view.getBoard().selectSquare(row, col);
+                    calculateAndShowHighlights(piece);
                 }
             }
         } else {
@@ -91,6 +93,7 @@ public class ChessController {
             if (row == selectedPiece.getRow() && col == selectedPiece.getCol()) {
                 selectedPiece = null;
                 view.getBoard().clearSelection();
+                view.getBoard().clearHighlights();
             } else if (GameLogic.canMakeMove(board, selectedPiece, row, col)) {
                 // Valid move - but double-check it resolves check if we're in check
                 if (GameLogic.isInCheck(board, currentPlayer)) {
@@ -104,6 +107,7 @@ public class ChessController {
                         // Move doesn't resolve check - deselect
                         selectedPiece = null;
                         view.getBoard().clearSelection();
+                        view.getBoard().clearHighlights();
                     }
                 } else {
                     // Not in check - proceed with move
@@ -120,8 +124,32 @@ public class ChessController {
                 // Invalid move - deselect
                 selectedPiece = null;
                 view.getBoard().clearSelection();
+                view.getBoard().clearHighlights();
             }
         }
+    }
+
+    private void calculateAndShowHighlights(ChessPiece piece) {
+        boolean[][] highlights = new boolean[8][8];
+        boolean[][] captures = new boolean[8][8];
+
+        for (int r = 0; r < 8; r++) {
+            for (int c = 0; c < 8; c++) {
+                if (r == piece.getRow() && c == piece.getCol()) continue;
+
+                if (GameLogic.canMakeMove(board, piece, r, c)) {
+                    if (moveResolvesCheck(piece, r, c)) {
+                        ChessPiece target = board.pieceAt(r, c);
+                        if (target != null && target.getColor() != piece.getColor()) {
+                            captures[r][c] = true;
+                        } else {
+                            highlights[r][c] = true;
+                        }
+                    }
+                }
+            }
+        }
+        view.getBoard().setHighlightMoves(highlights, captures);
     }
 
     /**
