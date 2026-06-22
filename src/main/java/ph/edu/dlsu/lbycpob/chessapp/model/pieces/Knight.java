@@ -63,7 +63,8 @@ public class Knight extends ChessPiece {
 
         // Check destination
 
-        // TODO: Complete the polymorphic method canMoveTo()
+        ChessPiece target = board.pieceAt(row, col);
+        if (target != null && target.getColor() == this.color) return false;
 
         return !moveWouldCauseCheck(row, col, board);
     }
