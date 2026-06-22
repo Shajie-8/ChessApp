@@ -42,7 +42,19 @@ public class Bishop extends ChessPiece {
         int rowDiff = Math.abs(row - this.row);
         int colDiff = Math.abs(col - this.col);
 
-        // TODO: Complete the polymorphic method canMoveTo()
+        if (rowDiff != colDiff || rowDiff == 0) return false; // Must be diagonal
+
+        int rowStep = Integer.compare(row, this.row);
+        int colStep = Integer.compare(col, this.col);
+
+        int currRow = this.row + rowStep;
+        int currCol = this.col + colStep;
+
+        while (currRow != row || currCol != col) {
+            if (board.pieceAt(currRow, currCol) != null) return false;
+            currRow += rowStep;
+            currCol += colStep;
+        }
 
         return !moveWouldCauseCheck(row, col, board);
     }
