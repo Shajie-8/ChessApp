@@ -59,6 +59,18 @@ public class ChessBoardView extends Canvas {
         draw();
     }
 
+    public void setHighlightMoves(boolean[][] highlights, boolean[][] captures) {
+        this.highlightMoves = highlights;
+        this.captureMoves = captures;
+        draw();
+    }
+
+    public void clearHighlights() {
+        this.highlightMoves = new boolean[8][8];
+        this.captureMoves = new boolean[8][8];
+        draw();
+    }
+
     private void draw() {
         gc.clearRect(0, 0, TOTAL_WIDTH, TOTAL_HEIGHT);
 
