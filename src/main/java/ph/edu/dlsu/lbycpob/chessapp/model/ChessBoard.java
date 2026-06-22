@@ -98,6 +98,16 @@ public class ChessBoard implements ChessBoardInterface {
             addPiece(new Pawn(1, col, ChessPiece.BLACK));
             addPiece(new Pawn(6, col, ChessPiece.WHITE));
         }
+
+        // 2. White Back Rank (Row 7)
+        addPiece(new Rook(7, 0, ChessPiece.WHITE));
+        addPiece(new Knight(7, 1, ChessPiece.WHITE));
+        addPiece(new Bishop(7, 2, ChessPiece.WHITE));
+        addPiece(new Queen(7, 3, ChessPiece.WHITE));
+        addPiece(new King(7, 4, ChessPiece.WHITE));
+        addPiece(new Bishop(7, 5, ChessPiece.WHITE));
+        addPiece(new Knight(7, 6, ChessPiece.WHITE));
+        addPiece(new Rook(7, 7, ChessPiece.WHITE));
     }
 
     /**
