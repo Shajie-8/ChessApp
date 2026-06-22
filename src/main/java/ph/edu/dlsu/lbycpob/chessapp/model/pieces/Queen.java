@@ -54,14 +54,22 @@ public class Queen extends ChessPiece {
         int rowDiff = Math.abs(row - this.row);
         int colDiff = Math.abs(col - this.col);
 
-        // Must move like rook or bishop
-        // TODO: Complete the polymorphic method canMoveTo()
+        boolean isStraight = (row == this.row || col == this.col);
+        boolean isDiagonal = (rowDiff == colDiff);
 
-        // Check path is clear
-        // TODO: Complete the polymorphic method canMoveTo()
+        if (!(isStraight || isDiagonal) || (row == this.row && col == this.col)) return false;
 
-        // Check destination
-        // TODO: Complete the polymorphic method canMoveTo()
+        int rowStep = Integer.compare(row, this.row);
+        int colStep = Integer.compare(col, this.col);
+
+        int currRow = this.row + rowStep;
+        int currCol = this.col + colStep;
+
+        while (currRow != row || currCol != col) {
+            if (board.pieceAt(currRow, currCol) != null) return false;
+            currRow += rowStep;
+            currCol += colStep;
+        }
 
         return !moveWouldCauseCheck(row, col, board);
     }
