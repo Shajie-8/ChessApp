@@ -108,6 +108,16 @@ public class ChessBoardView extends Canvas {
                     }
                 }
 
+                // Draw capture move highlights (soft red overlay + border)
+                if (captureMoves != null && captureMoves[row][col]) {
+                    gc.setFill(Color.rgb(255, 182, 193, 0.5)); // Soft red translucent
+                    gc.fillRect(x, y, SQUARE_SIZE, SQUARE_SIZE);
+
+                    gc.setStroke(Color.RED);
+                    gc.setLineWidth(2);
+                    gc.strokeRect(x + 1, y + 1, SQUARE_SIZE - 2, SQUARE_SIZE - 2);
+                }
+
                     // Draw piece
                 if (board != null) {
                     ChessPiece piece = board.pieceAt(row, col);
