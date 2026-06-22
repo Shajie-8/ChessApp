@@ -83,6 +83,16 @@ public class ChessBoard implements ChessBoardInterface {
      */
     public void initializeBoard() {
         clearBoard(); // Ensure board is empty
+
+        // 1. Black Back Rank (Row 0) & Pawns (Row 1)
+        addPiece(new Rook(0, 0, ChessPiece.BLACK));
+        addPiece(new Knight(0, 1, ChessPiece.BLACK));
+        addPiece(new Bishop(0, 2, ChessPiece.BLACK));
+        addPiece(new Queen(0, 3, ChessPiece.BLACK));
+        addPiece(new King(0, 4, ChessPiece.BLACK));
+        addPiece(new Bishop(0, 5, ChessPiece.BLACK));
+        addPiece(new Knight(0, 6, ChessPiece.BLACK));
+        addPiece(new Rook(0, 7, ChessPiece.BLACK));
     }
 
     /**
