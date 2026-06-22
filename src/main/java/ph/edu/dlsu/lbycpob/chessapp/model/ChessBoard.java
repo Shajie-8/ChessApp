@@ -93,6 +93,11 @@ public class ChessBoard implements ChessBoardInterface {
         addPiece(new Bishop(0, 5, ChessPiece.BLACK));
         addPiece(new Knight(0, 6, ChessPiece.BLACK));
         addPiece(new Rook(0, 7, ChessPiece.BLACK));
+
+        for (int col = 0; col < 8; col++) {
+            addPiece(new Pawn(1, col, ChessPiece.BLACK));
+            addPiece(new Pawn(6, col, ChessPiece.WHITE));
+        }
     }
 
     /**
