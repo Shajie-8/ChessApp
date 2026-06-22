@@ -97,6 +97,17 @@ public class ChessBoardView extends Canvas {
                     gc.setFill(Color.rgb(144, 238, 144, 0.45)); // Light green translucent
                     gc.fillRect(x, y, SQUARE_SIZE, SQUARE_SIZE);
 
+                    // Draw dark green center dot if the square is empty
+                    if (board != null && board.pieceAt(row, col) == null) {
+
+                        gc.setFill(Color.rgb(0, 100, 0, 0.8)); // Dark green
+                        double centerX = x + SQUARE_SIZE / 2.0;
+                        double centerY = y + SQUARE_SIZE / 2.0;
+                        double radius = 8;
+                        gc.fillOval(centerX - radius, centerY - radius, radius * 2, radius * 2);
+                    }
+                }
+
                     // Draw piece
                 if (board != null) {
                     ChessPiece piece = board.pieceAt(row, col);
