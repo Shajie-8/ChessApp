@@ -320,6 +320,7 @@ public class ChessController {
 
         selectedPiece = null;
         view.getBoard().clearSelection();
+        view.getBoard().clearHighlights();
 
         currentPlayer = (currentPlayer == ChessPiece.WHITE) ? ChessPiece.BLACK : ChessPiece.WHITE;
 
@@ -372,6 +373,7 @@ public class ChessController {
         // Clear selection
         selectedPiece = null;
         view.getBoard().clearSelection();
+        view.getBoard().clearHighlights();
 
         // Update display
         view.updateBoard(board);
