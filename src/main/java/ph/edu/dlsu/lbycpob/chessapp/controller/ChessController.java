@@ -54,6 +54,7 @@ public class ChessController {
 
         view.getMoveHistory().clear();
         view.getBoard().clearSelection();
+        view.getBoard().clearHighlights();
         view.updateBoard(board);
         updateStatus();
     }
