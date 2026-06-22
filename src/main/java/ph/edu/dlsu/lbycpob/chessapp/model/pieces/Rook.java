@@ -67,6 +67,9 @@ public class Rook extends ChessPiece {
             currCol += colStep;
         }
 
+        ChessPiece target = board.pieceAt(row, col);
+        if (target != null && target.getColor() == this.color) return false;
+
         return !moveWouldCauseCheck(row, col, board);
     }
 
