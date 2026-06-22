@@ -55,11 +55,17 @@ public class Rook extends ChessPiece {
         }
         if (row == this.row && col == this.col) return false; // Cannot stay still
 
-        // Check path is clear
-        // TODO: Complete the polymorphic method canMoveTo()
+        int rowStep = Integer.compare(row, this.row);
+        int colStep = Integer.compare(col, this.col);
 
-        // Check destination
-        // TODO: Complete the polymorphic method canMoveTo()
+        int currRow = this.row + rowStep;
+        int currCol = this.col + colStep;
+
+        while (currRow != row || currCol != col) {
+            if (board.pieceAt(currRow, currCol) != null) return false; // Path blocked
+            currRow += rowStep;
+            currCol += colStep;
+        }
 
         return !moveWouldCauseCheck(row, col, board);
     }
