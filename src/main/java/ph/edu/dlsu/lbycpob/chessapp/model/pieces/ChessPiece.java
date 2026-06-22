@@ -25,6 +25,7 @@ public abstract class ChessPiece implements ChessPieceInterface {
         ChessPiece capturedPiece = board.pieceAt(finalRow, finalCol);
         int originalRow = this.row;
         int originalCol = this.col;
+        boolean originalHasMoved = this.hasMoved;
 
         // Make temporary move
         board.removePiece(this.row, this.col);
@@ -40,6 +41,7 @@ public abstract class ChessPiece implements ChessPieceInterface {
         if (capturedPiece != null) {
             board.addPiece(capturedPiece);
         }
+
         this.hasMoved = originalHasMoved;
         return wouldCauseCheck;
     }
