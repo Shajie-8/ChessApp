@@ -57,7 +57,9 @@ public class Knight extends ChessPiece {
 
         // L-shape move
 
-        // TODO: Complete the polymorphic method canMoveTo()
+        // Validate L-shape: (2 by 1) OR (1 by 2)
+        boolean isLShape = (rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2);
+        if (!isLShape) return false;
 
         // Check destination
 
