@@ -53,6 +53,7 @@ public class Rook extends ChessPiece {
         if (row != this.row && col != this.col) {
             return false; // Must move horizontally or vertically
         }
+        if (row == this.row && col == this.col) return false; // Cannot stay still
 
         // Check path is clear
         // TODO: Complete the polymorphic method canMoveTo()
